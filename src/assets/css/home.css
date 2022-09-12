@@ -1,0 +1,42 @@
+
+.icon-smart-city {
+    margin-top: 20%;
+}
+
+.portal-data-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #566a7f;
+}
+
+.kartu {
+    margin-bottom: 10%;
+}
+.body-kartu {
+    padding: 3%;
+}
+
+
+/* CSS MOBILE */
+@media (max-width: 991.98px) { 
+
+    .konten {
+        padding-top: 0;
+    }
+    
+    .icon-smart-city {
+        margin-top: 2%;
+    }
+
+    .portal-data-title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #566a7f;
+    }
+
+    .body-kartu {
+        padding: 3%;
+        padding-top: 10%;
+    }
+    
+ }

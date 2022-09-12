@@ -1,0 +1,15 @@
+.splide__slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (max-width: 991.98px) { 
+    .splide__slide img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+ }
