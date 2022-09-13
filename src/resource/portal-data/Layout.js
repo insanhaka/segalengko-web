@@ -26,10 +26,10 @@ function Layout() {
 
                     <div className='container mt-5'>
 
-                        {params.menu == "smart-governance" &&
+                        {params.menu === "smart-governance" &&
                             <SmartGoverment/>
                         }
-                        {params.menu == "smart-economy" &&
+                        {params.menu === "smart-economy" &&
                             <SmartEconomy/>
                         }
 

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
-import { Heading, Highlight } from '@chakra-ui/react'
-import { useParams } from "react-router-dom";
+import { Heading } from '@chakra-ui/react';
 
 // Image Assets
 import Header from '../../../assets/img/video-head.png';
@@ -11,8 +10,6 @@ import Humas from '../../../assets/img/humas.jpg';
 import SlawiFM from '../../../assets/img/slawi-fm.png';
 
 function Index() {
-
-    let params = useParams();
 
   return (
     <div className='video-content pt-4'>
@@ -28,7 +25,7 @@ function Index() {
             <div className='row mt-4'>
               <div className='col-md-4'>
                 <Card style={{ height: 150, marginBottom: 30, paddingBottom: 4 }}>
-                  <a href='https://www.youtube.com/user/PemkabTegal' target="_blank">
+                  <a href='https://www.youtube.com/user/PemkabTegal' target="_blank" rel="noreferrer">
                     <Card.Body>
                       <center>
                       <Image src={Pemkab} className="img-fluid mb-2" style={{ width: 60 }} alt="Logo"/>
@@ -40,7 +37,7 @@ function Index() {
               </div>
               <div className='col-md-4'>
                 <Card style={{ height: 150, marginBottom: 30, paddingBottom: 4 }}>
-                  <a href='https://www.youtube.com/c/HumasTegalkab' target="_blank">
+                  <a href='https://www.youtube.com/c/HumasTegalkab' target="_blank" rel="noreferrer">
                     <Card.Body>
                       <center>
                       <Image src={Humas} className="img-fluid mb-2" style={{ width: 60 }} alt="Logo"/>
@@ -52,7 +49,7 @@ function Index() {
               </div>
               <div className='col-md-4'>
                 <Card style={{ height: 150, marginBottom: 30, paddingBottom: 4 }}>
-                  <a href='https://www.youtube.com/channel/UCDlAZ8GjYN4egBWyXwzD7mw' target="_blank">
+                  <a href='https://www.youtube.com/channel/UCDlAZ8GjYN4egBWyXwzD7mw' target="_blank" rel="noreferrer">
                     <Card.Body>
                       <center>
                       <Image src={SlawiFM} className="img-fluid mb-2" style={{ width: 60 }} alt="Logo"/>

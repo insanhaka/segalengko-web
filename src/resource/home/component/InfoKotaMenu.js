@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import '../../../assets/css/home.css';
@@ -64,7 +64,7 @@ function InfoKotaMenu() {
                     </div>
                     <div className='col-sm-2'>
                         <Card style={{ height: 150, marginBottom: 30 }}>
-                            <a href="https://ppid.tegalkab.go.id" target="_blank">
+                            <a href="https://ppid.tegalkab.go.id" target="_blank" rel="noreferrer">
                                 <Card.Body>
                                     <center>
                                     <Image src={Ppid} className="img-fluid" style={{ width: 50, marginBottom: 20 }} alt="Portal Data"/>

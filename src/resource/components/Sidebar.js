@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import '../../assets/css/aside.css';
 import '../../assets/css/menyala.css';

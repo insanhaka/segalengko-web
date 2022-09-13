@@ -4,11 +4,9 @@ import Card from 'react-bootstrap/Card';
 import { Heading } from '@chakra-ui/react';
 import { useParams } from "react-router-dom";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Select from 'react-select';
-import DataTable from 'react-data-table-component';
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
 import axios from 'axios';
 import { scaleOrdinal } from 'd3-scale';
 import { schemeTableau10 } from 'd3-scale-chromatic';
@@ -20,27 +18,6 @@ const genderOptions = [
     { value: 'Peralatan Olahraga', label: 'Peralatan Olahraga' },
   ];
 
-const columns = [
-    {
-        name: 'Title',
-        selector: row => row.title,
-        sortable: true,
-    },
-    {
-        name: 'Year',
-        selector: row => row.year,
-        sortable: true,
-    },
-];
-
-const customStyles = {
-    headCells: {
-        style: {
-            fontSize: 14,
-            backgroundColor: '#bee3f8',
-        },
-    },
-};
 
 
 const colors = scaleOrdinal(schemeTableau10).range();
@@ -70,12 +47,10 @@ const data = [
 function Index() {
 
     let params = useParams();
-    const [oldgender, setOldgender] = useState('');
 
     const apiUrl = useSelector(state => state.ApiReducer);
-    const apiToken = useSelector(state => state.HeaderReducer);
+    // const apiToken = useSelector(state => state.HeaderReducer);
 
-    const [menu, setMenu] = useState('');
     const [menuicon, setMenuicon] = useState('');
     const [menuchild, setMenuchild] = useState('');
 
@@ -90,12 +65,11 @@ function Index() {
             const getParent = res.filter((menus)=> {
                 return menus.uri === params.menu;
             });
-            setMenu(getParent);
             // Set Icon Primary Menu
             setMenuicon(getParent[0].icon)
             // Get Child Menu
             const getChild = getParent.map((childs)=> {
-                if (childs.child.length == 0) {
+                if (childs.child.length === 0) {
                     return "KOSONG";
                 }else {
                     const dataanak = childs.child;
@@ -128,7 +102,7 @@ function Index() {
                     <br/>
                     {Array.isArray(menuchild)
                     ? menuchild.map(sub => {
-                        if (sub !== "KOSONG" && sub.is_active == 1) {
+                        if (sub !== "KOSONG" && sub.is_active === 1) {
                             return (
                                 <TabList className='mb-2'key={sub.id}>
                                     <Tab style={{ fontSize : 12, wordWrap: 'break-word', paddingRight: 5, paddingLeft: 18, width: 150, textAlign: 'left', justifyContent: 'flex-start' }}>
@@ -158,7 +132,7 @@ function Index() {
                                             options={genderOptions}
                                             isSearchable='true'
                                             defaultValue={genderOptions[0]}
-                                            onChange={(event)=> setOldgender([event])}
+                                            // onChange={(event)=> setOldgender([event])}
                                             theme={(theme) => ({
                                                 ...theme,
                                                 borderRadius: 3,

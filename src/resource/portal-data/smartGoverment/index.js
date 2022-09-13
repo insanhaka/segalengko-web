@@ -16,7 +16,6 @@ import {
 import Select from 'react-select';
 import DataTable from 'react-data-table-component';
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
 import axios from 'axios';
 
 import Data from '../../../assets/Faker/Data';
@@ -28,7 +27,7 @@ import Jabatan from '../../../assets/img/jabatan.png';
 import Golongan from '../../../assets/img/golongan.png';
 import Eselon from '../../../assets/img/eselon.png';
 
-const genderOptions = [
+const OPDOption = [
     { value: 'Semua OPD', label: 'Semua OPD' },
     { value: 'Dinas Kominfo', label: 'Dinas Kominfo' },
     { value: 'Dinas Kesehatan', label: 'Dinas Kesehatan' },
@@ -77,12 +76,9 @@ const data = [
 function Index() {
 
     let params = useParams();
-    const [oldgender, setOldgender] = useState('');
 
     const apiUrl = useSelector(state => state.ApiReducer);
-    const apiToken = useSelector(state => state.HeaderReducer);
 
-    const [menu, setMenu] = useState('');
     const [menuicon, setMenuicon] = useState('');
     const [menuchild, setMenuchild] = useState('');
 
@@ -97,12 +93,11 @@ function Index() {
             const getParent = res.filter((menus)=> {
                 return menus.uri === params.menu;
             });
-            setMenu(getParent);
             // Set Icon Primary Menu
             setMenuicon(getParent[0].icon)
             // Get Child Menu
             const getChild = getParent.map((childs)=> {
-                if (childs.child.length == 0) {
+                if (childs.child.length === 0) {
                     return "KOSONG";
                 }else {
                     const dataanak = childs.child;
@@ -162,10 +157,10 @@ function Index() {
                                                 Pencarian data Kepegawaian berdasarkan OPD
                                             </label>
                                             <Select 
-                                            options={genderOptions}
+                                            options={OPDOption}
                                             isSearchable='true'
-                                            defaultValue={genderOptions[0]}
-                                            onChange={(event)=> setOldgender([event])}
+                                            defaultValue={OPDOption[0]}
+                                            // onChange={(event)=> setOldgender([event])}
                                             theme={(theme) => ({
                                                 ...theme,
                                                 borderRadius: 3,

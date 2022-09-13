@@ -7,13 +7,12 @@ import PortalDataImage from '../../../assets/img/Portaldata-image.png';
 import Empty from '../../../assets/img/empty-menu.png';
 
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
 import axios from 'axios';
 
 function PortalDataMenu() {
 
     const apiUrl = useSelector(state => state.ApiReducer);
-    const apiToken = useSelector(state => state.HeaderReducer);
+    // const apiToken = useSelector(state => state.HeaderReducer);
 
     const [menu, setMenu] = useState('');
 
@@ -38,7 +37,7 @@ function PortalDataMenu() {
 
     }, []);
 
-    if (menu.length == 0) {
+    if (menu.length === 0) {
 
         return (
             <div className="container pt-5">
@@ -63,7 +62,7 @@ function PortalDataMenu() {
     }else {
 
         const menulist = menu.map((a) => {
-            if (a.is_active == 1) {
+            if (a.is_active === 1) {
                 return  <div className='col-md-4'key={a.id}>
                             <Card className='kartu p-2'>
                                 <Link to={"/portal-data/"+a.uri}>

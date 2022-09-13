@@ -25,7 +25,7 @@ function Layout() {
 
                     <div className='container mt-5'>
 
-                      {params.menu == "video" &&
+                      {params.menu === "video" &&
                           <VideoIndex/>
                       }
 
